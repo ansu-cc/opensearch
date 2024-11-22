@@ -1,17 +1,17 @@
 app:
   name: LogCollectorOS
   code: LCOS
-  notify: kullas@ecloudcontrol.com
+  notify: aannavarghese@ecloudcontrol.com
 
 build:
-  version: 2.13
+  version: 2.17
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: opensearch-2.13
+  image_template: opensearch-2.17
 
 deploy:
-  context: krishna-ullas/DEV
+  context: ansu-cc/DEV
   type: statefulset 
   replicas: 1
   port:
@@ -27,7 +27,7 @@ volumes:
   mode: ReadWriteOnce
   class: microk8s-hostpath
 monitor:
-  notify: kullas@ecloudcontrol.com     
+  notify: aannavarghese@ecloudcontrol.com     
 
 properties:
   revision : 89
@@ -42,7 +42,7 @@ properties:
   MIN_AGE_COLD : 7d
   ENABLE_FLUENTD : 0
   ENABLE_METRICS : 1
-  ENABLE_MINIO_BACKUP : 1
+  ENABLE_MINIO_BACKUP : 0
   MINIO_BUCKET_NAME : index-snapshot
   MINIO_ENDPOINT : http://minio-2-0:9000
   MINIO_ACCESS_KEY :
